@@ -10,12 +10,28 @@ import {
   NO_REPOS,
 } from "../types";
 import { setAlert } from "./alertAction";
-
+export const getCurrentProfile = () => async (dispatch) => {
+  try {
+    const res = await api.get("/profile/me");
+    console.log("Inside profile");
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.statusCode,
+      },
+    });
+  }
+};
 export const getProfiles = () => async (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
-
+  console.log("getProfiles");
   try {
-    console.log("getprofiles");
     const res = await api.get("/profile");
 
     dispatch({
@@ -56,24 +72,6 @@ export const getGithubRepos = (username) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: NO_REPOS,
-    });
-  }
-};
-export const getCurrentProfile = () => async (dispatch) => {
-  try {
-    const res = await api.get("/profile/me");
-    console.log("Inside profile");
-    dispatch({
-      type: GET_PROFILE,
-      payload: res.data,
-    });
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: {
-        msg: err.response.statusText,
-        status: err.response.statusCode,
-      },
     });
   }
 };

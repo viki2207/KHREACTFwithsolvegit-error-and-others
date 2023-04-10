@@ -56,15 +56,15 @@ export const Routers = () => {
           path="add-education"
           element={<PrivateRoute component={AddEducation} />}
         />
-        <Route
-          path="/profile/:id"
-          element={<PrivateRoute component={Profile}></PrivateRoute>}
-        />
 
         <Route path="posts" element={<PrivateRoute component={Posts} />} />
         <Route path="posts/:id" element={<PrivateRoute component={Post} />} />
         <Route path="/*" element={<NotFound />} />
 
+        <Route
+          path="/profiles/:id"
+          element={<PrivateRoute component={Profiles}></PrivateRoute>}
+        />
         <Route
           path="/profiles"
           element={<PrivateRoute component={Profiles}></PrivateRoute>}

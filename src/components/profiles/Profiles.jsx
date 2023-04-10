@@ -11,9 +11,9 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
     getProfiles();
   }, [getProfiles]);
 
-  // const displayProfileItem = profiles.map((profile) => (
-  //   <ProfileItem key={profile._id} profile={profile} />
-  // ));
+  const displayProfileItem = profiles.map((profile) => (
+    <ProfileItem key={profile._id} profile={profile} />
+  ));
   return (
     <section className="container">
       {loading ? (
@@ -27,9 +27,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
           </p>
           <div className="profiles">
             {profiles.length > 0 ? (
-              profiles.map((profile) => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
+              displayProfileItem
             ) : (
               <h4>No profiles found...</h4>
             )}

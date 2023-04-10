@@ -271,7 +271,7 @@ ProfileForm.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  profile: state.profile,
+  profile: state.profileReducer,
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
