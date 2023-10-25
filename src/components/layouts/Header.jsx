@@ -7,9 +7,9 @@ import { logout } from "../../redux/actions/authAction";
 const Header = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
     <ul>
-      <li>
+      {/* <li>
         <Link to="/profiles">Developers</Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/posts">Posts</Link>
       </li>
@@ -30,9 +30,9 @@ const Header = ({ auth: { isAuthenticated }, logout }) => {
 
   const guestLinks = (
     <ul>
-      <li>
+      {/* <li>
         <Link to="/profiles">Developers</Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/register">Register</Link>
       </li>
